@@ -7,7 +7,7 @@
  */
 
 // Apply the java-library plugin to add support for Java Library
-apply plugin: 'java-library'
+apply plugin: 'java'
 apply plugin: 'eclipse'
 apply plugin: 'jacoco'
 
@@ -35,4 +35,16 @@ dependencies {
     testCompile "org.mockito:mockito-core:1.+"    
 }
 
-
+jar {
+	manifest {
+		attributes 'Implementation-Title': 'projecto2',
+				   'Implementation-Version': version
+	}
+}
+test{
+	jacoco {
+		append = false
+		destinationFile = file ("jacoco/jacocoTest.exec")
+	}
+	reports.junitXml.destination = file("jacoco/test-results")
+}

@@ -17,6 +17,9 @@ Thumbs.db
 # GIT
 .git/
 
+#gradle
+.gradle
+
 # Java
 *.class
 # packages 
